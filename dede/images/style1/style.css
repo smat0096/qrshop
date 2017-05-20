@@ -1,0 +1,46 @@
+#column1.column.ui-sortable.ui-sortable-disabled.ui-state-disabled{
+    display:none;
+}
+#item8.dbox{
+    display:none;
+}
+#sunitems6_1,
+#sunitems3_10,
+#sunitems2_7{
+    display:none;
+}
+#safemsg dt.lside span{
+    display:none;
+}
+#safemsg dt.lside::after{
+    content:"奇睿科技安全提示";
+    display:inline-block;
+    padding-left: 8px;
+}
+.head>.topnav>.sysmsg>.scroll>form>a{
+    display:none;
+}
+body > div:first-child > table > tbody > tr > td > div{
+    display:none;
+}
+
+body > div:first-child > table:first-child > tbody:first-child > tr:first-child > td{
+    display:block;
+    border-bottom: 1px solid #CFD7C4;
+    background: url(./dlgtitle.gif) bottom center repeat-x;
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    color: #4D6C2F;
+    cursor: move;
+    font-size: 14px;
+}
+
+body > div:first-child > table:first-child > tbody:first-child > tr:first-child > td:before{
+    content: "欢迎使用奇睿管理系统";
+    display:block;
+    padding-left: 8px;
+}
+#item7{
+    display: none;
+}

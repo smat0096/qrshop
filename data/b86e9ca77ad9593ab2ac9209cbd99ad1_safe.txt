@@ -1,0 +1,5 @@
+127.0.0.1||/||select count(*) as c from dede_archives where channel=@me||unusual character
+127.0.0.1||/||select count(*) as c from dede_archives where channel=@me||unusual character
+127.0.0.1||/||select count(*) as c from dede_archives where channel=@me||unusual character
+127.0.0.1||/||Select * from "dede_arctype" where reid='8' ORDER BY id||unusual character
+127.0.0.1||/||Select * from "dede_arctype" where reid='8' ORDER BY id||unusual character

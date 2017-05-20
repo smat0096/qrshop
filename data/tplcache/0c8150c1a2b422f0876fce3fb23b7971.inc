@@ -1,0 +1,1 @@
+[field:ID runphp='yes'] @me = GetTotalArc(@me);[/field:ID]

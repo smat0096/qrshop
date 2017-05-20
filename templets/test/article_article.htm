@@ -1,0 +1,33 @@
+{dede:include filename="head.htm"/}
+<main>
+	{dede:include filename="search_bar.htm"/}
+    <section class="content">
+      <div class="wrap clearfix">
+  			{dede:include filename="left_bar.htm"/}
+  			<section class="content-main fr">
+  				<article class="article">
+  					<header class="article-header">
+  						<h2>{dede:field.title/}</h2>
+  						<p class="article-header-info">
+  							<span class="author">{dede:field.writer/}</span> • 
+  							<span>发表于：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</span>
+  							 • <span>更新于：2017年04月27日 10:24:17</span>
+  						</p>
+  					</header>
+  					<div class="article-content">
+  						<div class="original-content">
+                {dede:field.body/}
+              </div>
+  					</div>
+  				</article>
+  				<div id="article-comments" class="article-comments">
+  					<ul class="article-comments-list">
+              <li>{dede:prenext get='pre'/}</li>
+              <li>{dede:prenext get='next'/}</li>
+            </ul>
+  				</div>
+  			</section>
+      </div>
+    </section>
+</main>
+{dede:include filename="footer.htm"/}

@@ -1,0 +1,7 @@
+INSERT INTO `dede_search_keywords` VALUES('1','文章','文章','3','5','1494488938','0','0');
+INSERT INTO `dede_search_keywords` VALUES('2','阿斯顿','阿斯顿 阿斯顿','2','1','1494489200','0','0');
+INSERT INTO `dede_search_keywords` VALUES('3','地方','地方','1','0','1494489076','0','0');
+INSERT INTO `dede_search_keywords` VALUES('4','的','的','1','1','1494489193','0','0');
+INSERT INTO `dede_search_keywords` VALUES('5','叫哥哥','叫哥哥 哥哥','1','0','1494490530','0','0');
+INSERT INTO `dede_search_keywords` VALUES('6','奇睿商城之积分商城商品','奇睿商城之积分商城商品 商品 商城 奇睿 积分','1','1','1495271062','0','0');
+INSERT INTO `dede_search_keywords` VALUES('7','获取阿里大于App Key 、Ap','获取阿里大于App Key 、Ap 大于 获取 阿里','1','1','1495271072','0','0');

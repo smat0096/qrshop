@@ -1,0 +1,245 @@
+<div class="suggest-register">
+    <div class="wrap su-reg-inner">
+        <h3>立即拥有奇睿商城，开启微信商城新纪元，奇睿商城与您一路同行</h3>
+        <p class="bn reg"><a href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qq/}&site=qq&menu=yes" target="_blank">立即联系客服</a></p>
+        
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-inner wrap">
+        <a href="javascript:;">Powered By  郴州市奇睿科技有限公司</a>
+    </div> 
+</footer>
+<script type="text/javascript" src="/renren/assets-cdn.kf5.com/help-center/js/vendor/ajaxupload.3.5.js"></script>
+<script type="text/javascript" src="/renren/assets-cdn.kf5.com/help-center/js/vendor/autosize.min.js"></script>
+<script type="text/javascript" src="/renren/assets-cdn.kf5.com/help-center/js/vendor/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+            $("#forum-search-form").submit(function(){
+                if($("#search").val()==""){
+                    showNotice("请输入搜索的关键字",false);
+                    return false;
+                }
+            });
+        
+    /*
+		$("#search").keyup(function(){
+			$.get("/posts/matchkeyword/",{keyword:$("#search").val()},function(data){
+				if(data){
+					$("#search-match-list").html(data).show();
+				}else{
+					$("#search-match-list").hide();
+				}
+			});
+		});
+    */
+		function selectKeyword(obj){
+			$("#search").val(obj.text());
+			post_search(1);
+		}
+
+		function post_search(){
+			$("#search-match-list").hide();
+			$("#forum-search-form").submit();
+		}
+	
+
+
+	SyntaxHighlighter.all();
+
+	$("body").click(function(event){
+		if($(event.target).data("type") != "select"){
+			$(".js-select .options-ul").hide();
+		}
+	});
+	
+    function set_language(lang){
+        $.post("/user/changelanguage/",{type:"change_language",language:lang,url:"/hc/"},function(res){
+        	if(!res.error){
+        		window.location.href = res.url;
+        	}
+        });
+    }
+
+	//页面初始时的纵向滚动条样式
+	window.htmlInitScrollStyle = "";
+
+	//隐藏页面的纵向滚动条
+    function hiddenHtmlScroll(){
+    	window.htmlInitScrollStyle = $("html").css("overflow-y");
+    	$("html").css("overflow-y", "hidden");
+    }
+
+	//显示页面的纵向滚动条
+	function showHtmlScroll(){
+		if(window.htmlInitScrollStyle){
+			$("html").css("overflow-y", window.htmlInitScrollStyle)
+		}
+	}
+
+	//显示一个页面遮罩层
+	function showLockLayer(queryString){
+		if(queryString != undefined){
+			$(queryString).show();
+		}
+		hiddenHtmlScroll();
+	}
+
+	//隐藏一个页面遮罩层
+	function hiddenLockLayer(queryString){
+		if(queryString != undefined){
+			$(queryString).hide();
+		}
+		showHtmlScroll();
+	}
+	
+	function question_pop() {
+        var answer_btn = $(".answer");
+        answer_btn.live("click",function(event) {
+            $(this).parents(".question-comment-item-bottom").toggleClass("show");
+        });
+    }
+    question_pop();
+
+    function js_select() {
+        var select = $(".js-select");
+        var title = $(".js-select").find(".title");
+        var box = $(".js-select").find("ul");
+        var item = box.find("a");
+        title.click(function() {
+            box.not($(this).siblings("ul")).hide();
+            $(this).next("ul").fadeToggle(200);
+        });
+        select.each(function(){
+            var oriSelect = $(this).parent().find("select");
+            if(oriSelect.length){
+                var oriSelectId = oriSelect.attr("id");
+                if(oriSelectId){
+                    var oriSelectIdStrArr=oriSelectId.split("_");
+                    if(oriSelectIdStrArr.length==2){
+                        oriSelect.attr("name", oriSelectIdStrArr[0]+"["+oriSelectIdStrArr[1]+"]");
+                    }
+                    if(oriSelectIdStrArr.length==3){
+                        oriSelect.attr("name", oriSelectIdStrArr[0]+"["+oriSelectIdStrArr[1]+"_"+oriSelectIdStrArr[2]+"]");
+                    }
+                    var oriSelectVal=oriSelect.val();
+                    var oriSelectValIndex=0;
+                    oriSelect.find("option").each(function(){
+                        if($(this).attr("value")==oriSelectVal){
+                            oriSelectValIndex=$(this).index();
+                        }
+                    });
+                    $(this).find("ul li").eq(oriSelectValIndex).addClass("active");
+					var panel = $("#panel_"+oriSelectId);
+					if(panel.length && oriSelect.val()){
+						panel.find(".form-section").hide();
+						panel.find("[cascade_value=\""+oriSelect.val()+"\"]").parent().show();
+					}
+                }
+            }
+        });
+        item.click(function(event) {
+			var option = $(this).html();
+			$(this).parents("li").addClass("active").siblings().removeClass("active")
+            $(this).parents(".js-select").find(".title").html(option);
+            $(this).parents("ul").fadeOut(200);
+            var index=$(this).parent().index();
+            var oriSelect=$(this).parent().parent().parent().parent().find("select");
+            if(oriSelect.length){
+				var optionItem=oriSelect.find("option").eq(index);
+				oriSelect.find("option").removeAttr("selected");
+				optionItem.attr("selected", "selected");
+				oriSelect.val(optionItem.attr("value"));
+				if(oriSelect.attr("id")){
+					var panel=$("#panel_"+oriSelect.attr("id"));
+					if(panel.length){
+						var val=oriSelect.val();
+						if(val){
+							panel.find(".form-section").hide();
+							panel.find("[cascade_value=\""+val+"\"]").parent().show();
+							panel.show();
+						}else{
+							panel.hide();
+						}
+					}
+				}
+			}
+        });
+    }
+    js_select();
+
+    function tip() {
+		var js_tip = $(".tooltip");
+		js_tip.hover(function() {
+			var text = $(this).attr("title");
+			var w = $(this).innerWidth();
+			var h = $(this).innerHeight();
+			var x = $(this).offset().left;
+			var y = $(this).offset().top;
+			$(this).attr("title", "");
+			var $tip_main = $("<div class=\"tip-main\"></div>").appendTo("body").html("<i></i>" + text);
+			var t_w = $tip_main.innerWidth();
+			$tip_main.fadeIn(400).css({
+                left: x - (t_w / 2) + (w / 2),
+                top: h + y + 10
+            });
+        }, function() {
+			var text = $(".tip-main:last").text(); //注意是最后一个对象的原因
+			$(this).attr("title", text);
+			$(".tip-main").fadeOut(100, function() {
+				$(this).remove();
+			});
+		});
+	}
+    tip();
+
+    $(".wechat").click(function(){
+		$(this).find(".qr-box").fadeToggle(400);
+	})
+
+    $(document).ready(function() {
+		$(".js-scroll-fixed").scrollToFixed({ marginTop: 10});
+    });
+
+    autosize($("textarea"));
+    
+	var user_id = parseInt("0");
+	
+	var setNewMessageCount = function(count){
+		count = parseInt(count);
+		if(count){
+			if(!$(".user-info .msg-number").length){
+				var msgNumber = $("<span class=\"msg-number\">0</span>");
+				msgNumber.hide();
+				msgNumber.prependTo(".user-nav .user-info");
+				var msgNumber2 = $("<span class=\"msg-num\">0</span>");
+				msgNumber2.hide();
+				msgNumber2.appendTo(".user-info-menu li:eq(0) a");
+				var msgNumber3 = $("<span></span>");
+				msgNumber3.hide();
+				msgNumber3.appendTo(".user-center-nav li:eq(0) a");
+			}
+			$(".user-info .msg-number").html(count).show();
+			$(".user-center-nav li span").html(count).show();
+			$(".user-info-menu .msg-num").html(count).show();
+		}else{
+			$(".user-info .msg-number").hide();
+			$(".user-center-nav li span").hide();
+			$(".user-info-menu .msg-num").hide();
+		}
+	};
+	
+	if(user_id){
+		setInterval(function(){
+			$.get("/hc/message/count/", function(res){
+				setNewMessageCount(res.newCount);
+			});
+		}, 10000);
+	}
+
+
+/*]]>*/
+</script>
+</body>
+</html>

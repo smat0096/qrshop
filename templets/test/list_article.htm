@@ -1,0 +1,87 @@
+{dede:include filename="head.htm"/}
+<main>
+  {dede:include filename="search_bar.htm"/}
+    <section class="content">
+        <div class="wrap clearfix">
+            {dede:include filename="left_bar.htm"/}
+            <section class="content-main fr">
+                <nav class="nav-tabs">
+        				    <ul>
+                      <li class="active">
+                        <a href="106266/-filter=all.htm">全部</a>
+                      </li>
+                      <!-- <li><a href="106266/-filter=recent.htm">最近</a></li> -->
+                    </ul>
+        				</nav>
+                <ul class="articles-list">
+                  {dede:list pagesize='10'}
+                    <li class="">
+                      <span class="posts-item-vote-state">[field:scores/] 赞</span>
+                      <div class="posts-item-content">
+                          <h3><a href="[field:arcurl/]">[field:title/]</a></h3>
+                          <p>
+                            <span class="author">[field:writer/]</span> • <time>发表于[field:pubdate function="GetDateTimeMK(@me)"/]</time> • <span>[field:click/]  点击</span>
+                          </p>
+                      </div>
+                    </li>
+                  {/dede:list}
+                </ul>
+                <div class="ks_pages">
+                 <ul class="pagelist">
+                  {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="2" /}
+                 </ul>
+                 <style>
+           .ks_pages{
+                      text-align: center;
+                      box-sizing: border-box;
+                    }
+                    .ks_pages .pagelist{
+                      display: inline-block;
+                      padding-left: 0;
+                      margin: 20px 0;
+                      border-radius: 4px;
+                    }                    
+                    .ks_pages .pagelist li{
+                      display: inline;
+                      margin: 0;
+                      -webkit-box-sizing: border-box;
+                      -moz-box-sizing: border-box;
+                      box-sizing: border-box;
+                      -webkit-transition: all .3s linear;
+                      -moz-transition: all .3s linear;
+                      -o-transition: all .3s linear;
+                      transition: all .3s linear;
+                      position: relative;
+                      float: left;
+                      padding: 6px 12px;
+                      margin-left: -1px;
+                      line-height: 1.42857143;
+                      text-decoration: none;
+                      background-color: #fff;
+                      border: 1px solid #ddd;
+                      color: #69c;
+                      border-color: #ededed;
+                      font-size: 14px;
+                      margin: 0;
+                      text-align: center;
+                    }
+                    .ks_pages .pagelist li a{
+                      text-decoration: none;
+                      background-color: transparent;
+                      color: #69c;
+                      font-size: 14px;
+                      margin: 0;
+                    }
+                    .ks_pages .pagelist li.thisclass, 
+                    .ks_pages .pagelist li:hover{
+                      color: #69c;
+                      background-color: #ededed;
+                      border-color: #ededed;
+                    }
+                 </style>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+{dede:include filename="footer.htm"/}

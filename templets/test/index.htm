@@ -1,0 +1,96 @@
+{dede:include filename="head.htm"/}
+<main>
+  <section class="search-box">
+    <form id="forum-search-form" accept-charset="UTF-8" method="post" action="/plus/search.php" class="search" role="search">
+                <div class="search-match">
+                    <label for="top-search">
+                        <input type="hidden" name="type" value="kb" />
+                        <input type="search" id="search" name="keyword" placeholder="输入问题关键字，找到答案" autocomplete="off" x-webkit-speech />
+                    </label>
+                    <ul id="search-match-list" class="match-list"></ul>
+                </div>
+                <input type="submit" name="" value="搜索">
+            </form>
+  </section>
+  <section class="content">
+    <div class="wrap clearfix">
+      <!--首页图标-->
+      <section class="functionlist">
+        <ul>
+          <li>
+            <a id="category_name_16231" href="/a/changjianwenti/kuaisurumen">
+              <img src="/renren/www.kf5.com/images/gfx/enter.png">
+              <p>快速入门</p>
+            </a>
+          </li>
+          <li>
+            <a id="category_name_16225" href="/a/shiyongxuzhi/shouqianxuzhi">
+              <img src="/renren/www.kf5.com/images/gfx/help.png">
+              <p>帮助文档</p>
+            </a>
+          </li>
+          <li>
+            <a id="category_name_16109" href="/a/changjianwenti/changjianwenti">
+              <img src="/renren/www.kf5.com/images/gfx/float.png">
+              <p>常见问题</p>
+            </a>
+          </li>
+          <li>
+            <a id="category_name_16023" href="javascript:;">
+              <img src="/renren/www.kf5.com/images/gfx/kbs.png">
+              <p>更新日志</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- 首页分类 -->
+      <section class="content-main kb-home" style="width:auto;float:none">
+        <div class="category-tree">
+          {dede:channelartlist type="top"}
+          <div class="category category-22414">
+              <h2><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></h2>
+              {dede:channel type='son' noself='yes'}
+              <div class="section section-86740">
+                <h3 ><a href="[field:typeurl/]">[field:typename/]</a></h3>
+                  <ul class="article-list">
+                    <!-- 自定义输出列表函数  field:id 提取 id为 @me -->
+                    [field:id  runphp='yes'] @me = GetChannelArclist(@me, '<li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>',"flag='h'", "0,3");[/field:id]
+                  </ul>
+                  <a href="[field:typeurl/]" class="more">
+                    [field:ID  runphp='yes'] @me = GetTotalArc(@me) ; @me = '查看全部'.@me.'篇文档';[/field:ID]
+                  </a>
+              </div>
+              {/dede:channel}
+          </div>
+          {/dede:channelartlist}
+        </div>
+      </section>
+      <section class="content-main tab-home" style="width:auto;float:none; display: none;">
+        <h2><a>#更多方式#</a></h2>
+        <div class="home-nav">
+          <div class="help-tool">
+            <a class="btn" href="javascript:;">
+              进入社区讨论
+            </a>
+          </div>
+          <div class="help-tool">
+            <a class="btn" href="javascript:;">
+              功能玩法详解
+            </a>
+          </div>
+          <div class="help-tool">
+            <a class="btn" href="#">
+              提交问题工单
+            </a>
+          </div>
+          <div class="help-tool">
+            <a class="btn" href="javascript:;" target="_blank">
+              更新日志
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+{dede:include filename="footer.htm"/}

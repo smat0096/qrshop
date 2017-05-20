@@ -1,0 +1,27 @@
+{dede:include filename="head.htm"/}
+<main>
+  {dede:include filename="search_bar.htm"/}
+    <section class="content">
+        <div class="wrap clearfix">
+            {dede:include filename="left_bar.htm"/}
+            <section class="content-main fr">
+                <h2>{dede:field name='typename'/}</h2>
+                <p class="description"></p>
+                <div class="section-tree">
+                    {dede:channelartlist type="top"}
+                        <div class="section section-86785">
+                            <h3><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></h3>
+                            <ul class="article-list">
+                                {dede:artlist type='son' noself='yes' row="5"}
+                                    <li ><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+                                {/dede:artlist}
+                            </ul>
+                            <a href="{dede:field name='typeurl'/}" class="more">{dede:field.typeid runphp="yes"}@me = GetTotalArc(@me) ; @me = '查看全部'.@me.'篇文档';{/dede:field.typeid} </a>
+                        </div>
+                    {/dede:channelartlist}
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+{dede:include filename="footer.htm"/}
