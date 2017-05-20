@@ -21,13 +21,13 @@ $z[5][4]['function']="MyDate('Y-m-d H:i',@me)";
 $z[6]=Array("field","",724,742);
 $z[6][4]=array();
 $z[6][4]['name']="body";
-$z[7]=Array("prenext","",914,939);
+$z[7]=Array("prenext","",932,957);
 $z[7][4]=array();
 $z[7][4]['get']="pre";
-$z[8]=Array("prenext","",963,989);
+$z[8]=Array("prenext","",981,1007);
 $z[8][4]=array();
 $z[8][4]['get']="next";
-$z[9]=Array("include","",1078,1115);
+$z[9]=Array("include","",3098,3135);
 $z[9][4]=array();
 $z[9][4]['filename']="footer.htm";
 

@@ -15,7 +15,7 @@ $z[4]=Array("pagelist","",1402,1474);
 $z[4][4]=array();
 $z[4][4]['listitem']="info,index,end,pre,next,pageno";
 $z[4][4]['listsize']="2";
-$z[5]=Array("include","",3639,3676);
+$z[5]=Array("include","",3644,3681);
 $z[5][4]=array();
 $z[5][4]['filename']="footer.htm";
 

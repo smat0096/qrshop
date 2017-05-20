@@ -20,11 +20,60 @@
               </div>
   					</div>
   				</article>
-  				<div id="article-comments" class="article-comments">
-  					<ul class="article-comments-list">
+  				<div id="article-comments" class="article-comments ks_pages">
+  					<ul class="article-comments-list pagelist">
               <li>{dede:prenext get='pre'/}</li>
               <li>{dede:prenext get='next'/}</li>
             </ul>
+             <style>
+                .ks_pages{
+                      text-align: center;
+                      box-sizing: border-box;
+                    }
+                    .ks_pages .pagelist{
+                      display: inline-block;
+                      padding-left: 0;
+                      margin: 20px 0;
+                      border-radius: 4px;
+                    }                    
+                    .ks_pages .pagelist li{
+                      display: inline;
+                      margin: 0;
+                      -webkit-box-sizing: border-box;
+                      -moz-box-sizing: border-box;
+                      box-sizing: border-box;
+                      -webkit-transition: all .3s linear;
+                      -moz-transition: all .3s linear;
+                      -o-transition: all .3s linear;
+                      transition: all .3s linear;
+                      position: relative;
+                      float: left;
+                      padding: 6px 12px;
+                      margin-left: -1px;
+                      line-height: 1.42857143;
+                      text-decoration: none;
+                      background-color: #fff;
+                      border: 1px solid #ddd;
+                      color: #69c;
+                      border-color: #ededed;
+                      font-size: 14px;
+                      margin: 0;
+                      text-align: center;
+                    }
+                    .ks_pages .pagelist li a{
+                      text-decoration: none;
+                      background-color: transparent;
+                      color: #69c;
+                      font-size: 14px;
+                      margin: 0;
+                    }
+                    .ks_pages .pagelist li.thisclass, 
+                    .ks_pages .pagelist li:hover{
+                      color: #69c;
+                      background-color: #ededed;
+                      border-color: #ededed;
+                    }
+                 </style>
   				</div>
   			</section>
       </div>
